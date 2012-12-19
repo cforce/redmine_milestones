@@ -80,7 +80,7 @@
         <%= javascript_include_tag "g.raphael.js", :plugin => 'redmine_milestones' %>
         <%= javascript_include_tag "g.pie.js", :plugin => 'redmine_milestones' %>
         <% javascript_tag do %>
-            Event.observe(window, 'load', function(){
+             $(document).ready(function(){
             draw_chart(<%= @data.to_json %>, '<%= t(:piechart_title) %>');
             });
         <% end %>

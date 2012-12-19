@@ -15,33 +15,33 @@ function milestone_type_changed()
 
 function new_milestone_project_selected()
 {
-    selected = $('milestone_project_id').value;
-    new Ajax.Request('/milestones/parent_project_changed/?id='+selected,
+    selected = $('#milestone_project_id').val();
+    $.ajax('/milestones/parent_project_changed/?id='+selected,
         {
-            method:'get',
-            onSuccess: function(transport){
-                var response = transport.responseText || "no response text";
-                eval(response);
+          method:'get',
+            success: function(resp,status,jqXHR){
+               if (resp)
+                eval(resp);
             },
-            onFailure: function(){ alert('Something went wrong...') }
+            error: function(){ alert('Something went wrong...') }
         });
 }
 
 function new_milestone_subproject_selected()
 {
-    selected = $('milestone_subproject_id').value;
+    selected = $('#milestone_subproject_id').val();
     if (selected == '0')
     {
         selected = $('milestone_project_id').value;
     }
-    new Ajax.Request('/milestones/subproject_changed/?id='+selected,
+    $.ajax('/milestones/subproject_changed/?id='+selected,
         {
             method:'get',
-            onSuccess: function(transport){
+            success: function(resp,status,jqXHR){
                 var response = transport.responseText || "";
-                eval(response);
+                eval(resp);
             },
-            onFailure: function(){ alert('Something went wrong...') }
+            error: function(){ alert('Something went wrong...') }
         });
 }
 
@@ -91,18 +91,18 @@ function recalculate_start_date()
 {
     from_milestone = $('milestone_previous_start_date_milestone_id').value;
     offset = $('milestone_start_date_offset').value;
-    new Ajax.Request('/milestones/recalculate_start_date',
+    $.ajax('/milestones/recalculate_start_date',
         {
             method:'post',
-            parameters: {
+            data: {
                 from: from_milestone,
                 offset: offset
             },
-            onSuccess: function(transport){
-                var response = transport.responseText || "no response text";
-                eval(response);
+            success: function(resp,status,jqXHR){
+               if (resp)
+                eval(resp);
             },
-            onFailure: function(){ alert('Something went wrong...') }
+            error: function(){ alert('Something went wrong...') }
         });
 }
 
@@ -110,68 +110,69 @@ function recalculate_planned_end_date()
 {
     from_milestone = $('milestone_previous_planned_end_date_milestone_id').value;
     offset = $('milestone_planned_end_date_offset').value;
-    new Ajax.Request('/milestones/recalculate_planned_end_date',
+    $.ajax('/milestones/recalculate_planned_end_date',
         {
             method:'post',
-            parameters: {
+            data: {
                 from: from_milestone,
                 offset: offset
             },
-            onSuccess: function(transport){
-                var response = transport.responseText || "no response text";
-                eval(response);
+            success: function(resp,status,jqXHR){
+               if (resp)
+                eval(resp);
             },
-            onFailure: function(){ alert('Something went wrong...') }
+            error: function(){ alert('Something went wrong...') }
         });
 }
 
 function recalculate_actual_date(id)
 {
-    new Ajax.Request('/milestones/recalculate_actual_date',
+    $.ajax('/milestones/recalculate_actual_date',
         {
             method:'get',
-            parameters: {id: id},
-            onSuccess: function(transport){
-                var response = transport.responseText || "no response text";
-                eval(response);
+            data: {id: id},
+            success: function(resp,status,jqXHR){
+               if (resp)
+                eval(resp);
             },
-            onFailure: function(){ alert('Something went wrong...') }
+            error: function(){ alert('Something went wrong...') }
         });
 }
 
 function issue_version_changed(project)
 {
-    val = $('issue_fixed_version_id').value;
-    new Ajax.Request('/milestones/issue_version_changed',
+   val = $('#issue_fixed_version_id').val();
+    $.ajax('/milestones/issue_version_changed',
         {
             method:'get',
-            parameters: {id: val, project_id: project},
-            onSuccess: function(transport){
-                var response = transport.responseText || "no response text";
-                eval(response);
+            data: {id: val, project_id: project},
+            success: function(resp,status,jqXHR){
+               if (resp)
+                eval(resp);
             },
-            onFailure: function(){ alert('Something went wrong...') }
+            error: function(){
+             alert('Something went wrong...') }
         });
 }
 
 function milestone_version_changed(project)
 {
-    val = $('milestone_version_id').value;
-    new Ajax.Request('/milestones/milestone_version_changed',
+   val = $('#milestone_version_id').val();
+    $.ajax('/milestones/milestone_version_changed',
         {
             method:'get',
-            parameters: {id:val, project_id: project},
-            onSuccess: function(transport){
-                var response = transport.responseText || "no response text";
-                eval(response);
+            data: {id:val, project_id: project},
+            success: function(resp,status,jqXHR){
+               if (resp)
+                eval(resp);
             },
-            onFailure: function(){ alert('Something went wrong...') }
+            error: function(){ alert('Something went wrong...') }
         });
 }
 
 function milestone_sharing_changed(project)
 {
-    val = $('milestone_sharing').value;
+   val = $('#milestone_sharing').val();
     if (val == "specific")
     {
         $('assigned_projects_placeholder').show();
@@ -211,7 +212,7 @@ function remove_fields(link)
 
 function show_milestones_changed()
 {
-    var val = $('show_milestones').checked;
+    var val = $('#show_milestones').checked;
     console.log(val);
     if (val == '1')
     {
@@ -225,7 +226,7 @@ function show_milestones_changed()
 
 function show_hidden_milestones_changed()
 {
-    var val = $('show_completed_milestones').checked;
+    var val = $('#show_completed_milestones').checked;
     console.log(val);
     if (val == '1')
     {
@@ -284,7 +285,7 @@ function select_assigned()
 
 function planned_date_changed(version_id, milestone_id, old_val)
 {
-    var new_val = $('milestone_planned_end_date').value;
+    var new_val = $('#milestone_planned_end_date').value;
 
     if ((milestone_id == '') || (milestone_id == 'undefined'))
     {
@@ -293,15 +294,15 @@ function planned_date_changed(version_id, milestone_id, old_val)
 
     if ((new_val != undefined && new_val != old_val) && (milestone_id != '') && (version_id != 0) && (version_id != 'undefined'))
     {
-        new Ajax.Request('/milestones/'+milestone_id+'/planned_end_date_changed',
+        $.ajax('/milestones/'+milestone_id+'/planned_end_date_changed',
             {
                 method:'get',
-                parameters: {newval: new_val, oldval: old_val, version_id: version_id},
-                onSuccess: function(transport){
-                    var response = transport.responseText || "no response text";
-                    //eval(response);
+                data: {newval: new_val, oldval: old_val, version_id: version_id},
+                success: function(resp,status,jqXHR){
+                   if (resp)
+                    eval(resp);
                 },
-                onFailure: function(){ alert('Something went wrong...') }
+                error: function(){ alert('Something went wrong...') }
             });
     }
     return true;
@@ -309,14 +310,14 @@ function planned_date_changed(version_id, milestone_id, old_val)
 
 function confirm_planned_end_date_change(version_id, milestone_id, old_val)
 {
-    Event.observe('milestone_planned_end_date', 'change', function(event){
+    $('#milestone_planned_end_date').change(function(event){
         planned_date_changed(version_id, milestone_id, old_val);
     });
 }
 
 function start_date_changed(version_id, milestone_id, old_val)
 {
-    var new_val = $('milestone_start_date').value;
+    var new_val = $('#milestone_start_date').value;
 
     if ((milestone_id == '') || (milestone_id == 'undefined'))
     {
@@ -325,15 +326,15 @@ function start_date_changed(version_id, milestone_id, old_val)
 
     if ((new_val != undefined && new_val != old_val) && (version_id != '') && (version_id != 0))
     {
-        new Ajax.Request('/milestones/'+milestone_id+'/start_date_changed',
+        $.ajax('/milestones/'+milestone_id+'/start_date_changed',
             {
                 method:'get',
-                parameters: {newval: new_val, oldval: old_val, version_id: version_id},
-                onSuccess: function(transport){
-                    var response = transport.responseText || "no response text";
-                    //eval(response);
+                data: {newval: new_val, oldval: old_val, version_id: version_id},
+                success: function(resp,status,jqXHR){
+                   if (resp)
+                    eval(resp);
                 },
-                onFailure: function(){ alert('Something went wrong...') }
+                error: function(){ alert('Something went wrong...') }
             });
     }
     return true;
@@ -341,7 +342,7 @@ function start_date_changed(version_id, milestone_id, old_val)
 
 function confirm_start_date_change(version_id, milestone_id, old_val)
 {
-    Event.observe('milestone_start_date', 'change', function(event){
+    $('#milestone_start_date').change(function(event){
         start_date_changed(version_id, milestone_id, old_val);
     });
 }

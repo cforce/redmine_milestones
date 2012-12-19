@@ -4,6 +4,6 @@
     <% else %>
         $('version_placeholder').show();
         <% @project = @subproject %>
-        $('milestone_version').replace("<%= escape_javascript(render :partial=>"version") %>")
+        $('#milestone_version').replaceWith("<%= escape_javascript(render :partial=>"version") %>")
     <% end %>
 <% end %>

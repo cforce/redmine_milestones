@@ -1,6 +1,6 @@
 <% unless @project.descendants.empty? %>
     $('subproject_placeholder').show();
-    $('milestone_subproject_id').replace("<%= escape_javascript(render :partial=>"subproject") %>")
+    $('#milestone_subproject_id').replaceWith("<%= escape_javascript(render :partial=>"subproject") %>")
 <% else %>
     $('subproject_placeholder').hide();
 <% end %>
@@ -8,5 +8,5 @@
     $('version_placeholder').hide();
 <% else %>
     $('version_placeholder').show();
-    $('milestone_version').replace("<%= escape_javascript(render :partial=>"version") %>")
+    $('#milestone_version').replaceWith("<%= escape_javascript(render :partial=>"version") %>")
 <% end %>
