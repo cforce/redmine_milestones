@@ -1,0 +1,86 @@
+de:
+  label_milestone_new: neuer Meilenstein
+  field_kind: Typ
+  field_planned_end_date: geplante Fertigstellung
+  field_actual_date: tatsächliche Fertigstellung
+  label_milestone_sharing_none: nicht geteilt
+  label_milestone_sharing_descendants: mit Unterpojekten
+  label_milestone_sharing_hierarchy: mit Unterpojekthierarchie
+  label_milestone_sharing_tree: mit Projektbaum
+  label_milestone_sharing_system: mit allen Projekten
+  label_milestone_sharing_specific: mit definierten Projekten
+  milestone_kind_internal: intern
+  milestone_kind_aggregate: aggregiert
+  field_parent_milestone: übergeordneter Meilenstein
+  field_milestone: Meilenstein
+  fixed_planned_end_date: festgelegter Fertigstellungstermin
+  field_previous_planned_end_date_milestone: von Meilenstein
+  field_planned_end_date_offset: Abstand in Tagen
+  field_previous_start_date_milestone: von Meilenstein
+  field_start_date_offset: Abstand in Tagen
+  milestone_start_date: Meilensteinbeginn
+  milestone_planned_end_date: Meilensteinende
+  recalculate_start_date: Beginndatum neu berechnen
+  label_milestone_edit: Meilenstein bearbeiten
+  label_show_milestones: Meilenstein anzeigen
+  label_show_completed_milestones: abgeschlossene Meilensteine anzeigen
+  issues: Tickets
+  done: erledigt
+  left: offen
+  project_module_milestones_module: Meilensteine
+  field_milestones: Meilenstein
+  aggregate_milestones: Meilensteine zusammenfassen
+  versions: Versionen
+  label_milestone_plural: Meilensteine
+  label_milestone: Meilenstein
+  milestone_settings: Meilensteineinstellungen
+  default_show_milestones: Meilensteine anzeigen ist voreingestellt
+  default_show_closed_milestones: abgeschlossene Meilensteine anzeigen ist voreingestellt
+  update: Aktualisiern
+  label_hide_milestones: Meilensteine nicht anzeigen
+  label_hide_completed_milestones: abgeschlossene Meilensteine nicht anzeigen
+  active_milestone: aktiver Meilenstein
+  add_assigned_project: Projekt zuweisen
+  internal: intern
+  aggregate: aggregiert
+  owner: Besitzer
+  add_assigned_milestone: Meilenstein einbeziehen
+  field_child: abhängiger Meilenstein
+  assign_milestone: zugewiesen an
+  Owner: Besitzer
+  recalculate_planned_end_date: Enddatum neu berechnen
+  recalculate_actual_date: tatsächliches Datum neu berechnen
+  Start_date: Beginndatum
+  Previous_milestone: voriger Meilenstein
+  Next_milestone: nachfolgender Meilenstein
+  Due_date: Stichtag
+  Actual_date: tatsächlicher Stichtag
+  change_start_date_confirmation: Wollen sie das Beginndatum für alle abhängigen Meilensteine neu berechnen?
+  change_planned_date_confirmation: Wollen sie das Planungsdatum für alle abhängigen Meilensteine neu berechnen?
+  label_related_milestones: verwandte Meilensteine
+  dates: Datum
+  n_a: nicht verfügbar
+  label_planned_start_date: geplantes Beginndatum
+  planned_start_date: geplantes Beginndatum
+  label_actual_start_date: tatsächliches Beginndatum
+  actual_start_date: tatsächliches Beginndatum
+  planned_end_date: geplantes Enddatum
+  actual_date: tatsächliches Enddatum
+  planned_actual_start_date: "geplantes/tatsächliches Beginndatum"
+  planned_actual_end_date: "geplantes/tatsächliches Enddatum"
+  days_delay: Verzögerung
+  label_reports: Berichte
+  report_for_version: Bericht für Version/Release %{version}
+  label_name: Meilensteinname
+  label_owner: Besitzer
+  label_planned_due_date: geplanter Stichtag
+  label_actual_due_date: tatsächlicher Stichtag
+  label_difference: Differenz
+  report_for_milestone: Bericht für Meilenstein %{milestone}
+  piechart_title: Fortschrittsanzeige
+  not_enough_data_for_piechart: Es gibt keine ausreichende Datenlage für einen Piechart (mindestens zwei Einträge mit einem Fortschritt > 0 sind notwendig).
+  start_oob_warning: "Das Beginndatum für den Meilenstein liegt außerhalb der zugeordneten Version bzw. des Release. Möchten sie dennoch fortfahren?"
+  planned_oob_warning: "Das Planungsdatum für den Meilenstein liegt außerhalb der zugeordneten Version bzw. des Release. Möchten sie dennoch fortfahren?"
+  started: begonnen
+  later: später
+  delay: verspätet
